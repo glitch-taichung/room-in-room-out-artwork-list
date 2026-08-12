@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>張碩尹策展「Room In Room Out」作品清冊網站</title>
+    <link rel="icon" type="image/png" href="./public/img/logo.png">
+    <meta name="description" content="Room In Room Out Artwork List">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=16">
+</head>
+<body>
+    <header id="header">
+        <a href="#" id="logo-link" class="logo-link" onclick="app.goHome(event)"><img src="./public/img/logo.png" alt="Room In Room Out Logo" id="logo"></a>
+        <nav id="navbar">
+            <ul id="nav-list">
+                <li class="nav-item has-dropdown">
+                    <div class="nav-item-header">
+                        <a href="#" id="nav-artwork-list" class="active" onclick="app.goHome(event)">作品清冊</a>
+                        <button class="dropdown-toggle" onclick="app.toggleDropdown(event)" aria-label="展開藝術家">
+                            <span class="arrow" id="dropdown-arrow">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19L12 12M5 19L19 19M5 19L5 5" stroke-linejoin="round" stroke-linecap="round"/></svg>
+                            </span>
+                        </button>
+                    </div>
+                    <ul class="dropdown" id="artist-dropdown">
+                        <li><a href="#" data-artist="蕭其珩" onclick="app.filterArtist(event, '蕭其珩')">蕭其珩</a></li>
+                        <li><a href="#" data-artist="吳聯吟" onclick="app.filterArtist(event, '吳聯吟')">吳聯吟</a></li>
+                        <li><a href="#" data-artist="林君晏" onclick="app.filterArtist(event, '林君晏')">林君晏</a></li>
+                        <li><a href="#" data-artist="林家佑" onclick="app.filterArtist(event, '林家佑')">林家佑</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="#" id="nav-about" onclick="app.showAbout(event)">關於展覽</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Artwork List View -->
+        <section id="artwork-view" class="view active">
+            <div id="artwork-grid" class="grid-container"></div>
+        </section>
+
+        <!-- About Exhibition View -->
+        <section id="about-view" class="view">
+            <div id="about-container"></div>
+        </section>
+    </main>
+
+    <!-- Artwork Detail Modal -->
+    <div id="artwork-modal" class="modal">
+        <div class="modal-content">
+            <button id="modal-close" class="close-btn" aria-label="Close modal" onclick="app.closeModal()">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 5L5 19M5 5L19 19" style="display:none;"/><path d="M5 19L12 12M5 19L19 19M5 19L5 5" stroke-linejoin="round" stroke-linecap="round"/></svg>
+            </button>
+            <div class="modal-layout">
+                <div class="modal-info" id="modal-info"></div>
+                <div class="modal-image-container">
+                    <img id="modal-image" src="" alt="Artwork">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Copyright &copy; 2026 Glitch</p>
+    </footer>
+
+    <script src="app.js?v=23"></script>
+</body>
+</html>
